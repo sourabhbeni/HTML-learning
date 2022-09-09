@@ -15,7 +15,8 @@ body {
   height: auto;
   max-width: 100%;
   transform-origin: center top;
-  filter: drop-shadow(1px 35px 300px #faea10);
+  -webkit-filter: drop-shadow(1px 35px 300px rgb(202, 154, 72))
+  filter: drop-shadow(1px 35px 300px rgb(202, 154, 72));
   animation: swing 3.3s ease-in-out infinite alternate;
 }
 @keyframes swing {
