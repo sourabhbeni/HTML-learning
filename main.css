@@ -7,75 +7,68 @@ body {
 }
 
 
-.toplayer {
-  z-indeX: 99;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
 }
 
-button {
-  background: #ff3466;
-  width: 150px;
-  height: 40px;
-  border: none;
-  color: #FFF;
-  border-radius: 6px;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 15px;
-  letter-spacing: 1px;
-  outline: none;
-  cursor: pointer;
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
 }
 
-.layer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  background: #424B54;
-  opacity: 0;
-  transform: scale(0.1);
-  font-size: 27px;
-  transition: all 0.5s ease;
-}
-.layer > * {
-  margin: 3px;
+.glow-on-hover:active {
+    color: #000
 }
 
-.diwali.i {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  color: #FFF;
-  cursor: pointer;
+.glow-on-hover:active:after {
+    background: transparent;
 }
 
-.diwali.p {
-  color: #FFF;
-  font-size: 20px;
-  letter-spacing: 2px;
-  font-weight: 300;
-  opacity: 0;
-  transition: all 3s ease;
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 
 
-.clicked {
-  transition: all 0.5s ease;
-  transform: scale(1);
-  z-index: 100;
-  opacity: 1;
-}
-.clicked p, .clicked a {
-  opacity: 1;
-}
+
 #pic1 {
     
   height: auto;
